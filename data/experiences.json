@@ -1,0 +1,198 @@
+{
+  "meta": {
+    "generatedAt": "2026-09-22T10:57:07.288Z",
+    "model": "gemini-3.6-flash",
+    "sourceFile": "data\\raw-cv.txt",
+    "imageSource": "Pexels"
+  },
+  "experiences": [
+    {
+      "year": 2019,
+      "type": "residency",
+      "title": "Residency at Villa Medici",
+      "institution": "Villa Medici",
+      "city": "Rome",
+      "country": "Italy",
+      "description": "The artist completed a residency at Villa Medici in Rome in 2019. No further details were provided in the source text.",
+      "tags": [
+        "residency",
+        "rome",
+        "italy",
+        "villa medici"
+      ],
+      "imageQuery": "villa medici rome exterior",
+      "sourceText": "2019 — Residency at Villa Medici, Rome",
+      "inferredFields": [
+        "country",
+        "description"
+      ],
+      "confidence": "high",
+      "id": "2019-villa-medici",
+      "images": [
+        {
+          "url": "https://images.pexels.com/photos/14064480/pexels-photo-14064480.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Beautiful facade of Villa Doria Pamphili with lush greenery in Rome, Italy.",
+          "credit": "Alex Does Pictures",
+          "creditUrl": "https://www.pexels.com/@alex-does-pictures-33201512",
+          "source": "pexels"
+        },
+        {
+          "url": "https://images.pexels.com/photos/37514587/pexels-photo-37514587.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "A stunning villa nestled among vibrant trees under a clear blue sky in Rome, Italy.",
+          "credit": "Phil Evenden",
+          "creditUrl": "https://www.pexels.com/@philevenphotos",
+          "source": "pexels"
+        },
+        {
+          "url": "https://images.pexels.com/photos/36770792/pexels-photo-36770792.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Charming villa surrounded by pine trees in a Mediterranean environment, evoking classic Italian architecture.",
+          "credit": "Giorgi Gobadze",
+          "creditUrl": "https://www.pexels.com/@giorgi-gobadze-2160475859",
+          "source": "pexels"
+        }
+      ],
+      "needsReview": true
+    },
+    {
+      "year": 2020,
+      "type": "group_exhibition",
+      "title": "Group exhibition at Palais de Tokyo",
+      "institution": "Palais de Tokyo",
+      "city": "Paris",
+      "country": "France",
+      "description": "The artist participated in a group exhibition at Palais de Tokyo in Paris in 2020. No further details were provided in the source text.",
+      "tags": [
+        "group_exhibition",
+        "paris",
+        "france",
+        "palais de tokyo"
+      ],
+      "imageQuery": "palais de tokyo paris building",
+      "sourceText": "2020 — Group exhibition at Palais de Tokyo, Paris",
+      "inferredFields": [
+        "country",
+        "description"
+      ],
+      "confidence": "high",
+      "id": "2020-palais-de-tokyo",
+      "images": [
+        {
+          "url": "https://images.pexels.com/photos/16923124/pexels-photo-16923124.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "A stunning aerial view of Paris highlighting historic architecture and lush greenery.",
+          "credit": "Diego F. Parra",
+          "creditUrl": "https://www.pexels.com/@diego-f-parra-33199",
+          "source": "pexels"
+        },
+        {
+          "url": "https://images.pexels.com/photos/30110943/pexels-photo-30110943.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Front view of the Palais Bourbon in Paris, featuring statues and French flag.",
+          "credit": "Mathias Reding",
+          "creditUrl": "https://www.pexels.com/@matreding",
+          "source": "pexels"
+        },
+        {
+          "url": "https://images.pexels.com/photos/16923129/pexels-photo-16923129.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "A stunning aerial shot of Grand Palais Éphémère surrounded by lush gardens in Paris.",
+          "credit": "Diego F. Parra",
+          "creditUrl": "https://www.pexels.com/@diego-f-parra-33199",
+          "source": "pexels"
+        }
+      ],
+      "needsReview": true
+    },
+    {
+      "year": 2021,
+      "type": "collaboration",
+      "title": "Collaboration with XYZ Foundation",
+      "institution": "XYZ Foundation",
+      "city": "London",
+      "country": "United Kingdom",
+      "description": "The artist engaged in a collaboration with XYZ Foundation in London in 2021. No further details were provided in the source text.",
+      "tags": [
+        "collaboration",
+        "london",
+        "united kingdom",
+        "foundation"
+      ],
+      "imageQuery": "london architecture building exterior",
+      "sourceText": "2021 — Collaboration with XYZ Foundation, London",
+      "inferredFields": [
+        "country",
+        "description"
+      ],
+      "confidence": "high",
+      "id": "2021-xyz-foundation",
+      "images": [
+        {
+          "url": "https://images.pexels.com/photos/3882638/pexels-photo-3882638.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "A striking view of a modern concrete structure against a vibrant blue sky in London, Ontario.",
+          "credit": "d_odd_y",
+          "creditUrl": "https://www.pexels.com/@d_odd_y-885774",
+          "source": "pexels"
+        },
+        {
+          "url": "https://images.pexels.com/photos/35033657/pexels-photo-35033657.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Detailed view of a red brick building with arched windows in an urban setting.",
+          "credit": "Max W",
+          "creditUrl": "https://www.pexels.com/@max-w-1673439416",
+          "source": "pexels"
+        },
+        {
+          "url": "https://images.pexels.com/photos/18654300/pexels-photo-18654300.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Close-up of a classic Victorian building facade in London, England.",
+          "credit": "Emílie Šmeráková",
+          "creditUrl": "https://www.pexels.com/@emilie-smerakova-750012491",
+          "source": "pexels"
+        }
+      ],
+      "needsReview": true
+    },
+    {
+      "year": 2022,
+      "type": "solo_exhibition",
+      "title": "Solo exhibition at Gallery ABC",
+      "institution": "Gallery ABC",
+      "city": "Berlin",
+      "country": "Germany",
+      "description": "The artist held a solo exhibition at Gallery ABC in Berlin in 2022. No further details were provided in the source text.",
+      "tags": [
+        "solo_exhibition",
+        "berlin",
+        "germany",
+        "gallery"
+      ],
+      "imageQuery": "berlin gallery building exterior",
+      "sourceText": "2022 — Solo exhibition at Gallery ABC, Berlin",
+      "inferredFields": [
+        "country",
+        "description"
+      ],
+      "confidence": "high",
+      "id": "2022-gallery-abc",
+      "images": [
+        {
+          "url": "https://images.pexels.com/photos/38150086/pexels-photo-38150086.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Altes Museum in Berlin, known for its neoclassical architecture, under a clear sky.",
+          "credit": "Ch  Jawad",
+          "creditUrl": "https://www.pexels.com/@ch-jawad-224803663",
+          "source": "pexels"
+        },
+        {
+          "url": "https://images.pexels.com/photos/35235410/pexels-photo-35235410.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Discover the neoclassical architecture of Altes Museum in Berlin, Germany, with its stunning columns and sculptures.",
+          "credit": "Travel with  Lenses",
+          "creditUrl": "https://www.pexels.com/@travel-with-lenses-734723610",
+          "source": "pexels"
+        },
+        {
+          "url": "https://images.pexels.com/photos/18910917/pexels-photo-18910917.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "A contemporary colonnade at James Simon Gallery, Berlin, with pedestrians walking by.",
+          "credit": "Zois Fotis",
+          "creditUrl": "https://www.pexels.com/@lichtberlin",
+          "source": "pexels"
+        }
+      ],
+      "needsReview": true
+    }
+  ]
+}
