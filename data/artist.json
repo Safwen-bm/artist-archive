@@ -1,0 +1,11 @@
+{
+  "name": "Safwen Ben Mabrouk",
+  "bio": "Full-stack developer based in Monastir, Tunisia, working mainly in Next.js, NestJS and PostgreSQL. This archive is a prototype built for a technical test, showing how an artist's CV could be turned into a structured, browsable site.",
+  "location": "Monastir, Tunisia",
+  "profileInitials": "SB",
+  "links": [
+    { "label": "GitHub", "url": "https://github.com/Safwen-bm" },
+    { "label": "LinkedIn", "url": "https://linkedin.com/in/safwen-ben-mabrouk" },
+    { "label": "Portfolio", "url": "https://portfolio-project-psi-black.vercel.app" }
+  ]
+}

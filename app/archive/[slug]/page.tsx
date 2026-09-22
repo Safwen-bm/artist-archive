@@ -30,7 +30,7 @@ export default async function ExperiencePage({ params }: { params: Promise<Param
   return (
     <>
       <p className="crumb">
-        <Link href="/">Archive</Link> / {e.year}
+        <Link href="/archive">Archive</Link> / {e.year}
       </p>
 
       <article className="detail">
@@ -107,7 +107,7 @@ export default async function ExperiencePage({ params }: { params: Promise<Param
 
       <nav className="pager" aria-label="Other entries">
         {previous ? (
-          <Link href={`/experiences/${previous.id}`}>
+          <Link href={`/archive/${previous.id}`}>
             <small>Previous, {previous.year}</small>
             <strong>{previous.title}</strong>
           </Link>
@@ -115,7 +115,7 @@ export default async function ExperiencePage({ params }: { params: Promise<Param
           <span />
         )}
         {next ? (
-          <Link href={`/experiences/${next.id}`} className="next">
+          <Link href={`/archive/${next.id}`} className="next">
             <small>Next, {next.year}</small>
             <strong>{next.title}</strong>
           </Link>

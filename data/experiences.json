@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-09-22T10:57:07.288Z",
+    "generatedAt": "2026-09-22T11:34:59.980Z",
     "model": "gemini-3.6-flash",
     "sourceFile": "data\\raw-cv.txt",
     "imageSource": "Pexels"
@@ -13,14 +13,14 @@
       "institution": "Villa Medici",
       "city": "Rome",
       "country": "Italy",
-      "description": "The artist completed a residency at Villa Medici in Rome in 2019. No further details were provided in the source text.",
+      "description": "The artist completed a residency at Villa Medici in Rome in 2019. No further details were provided.",
       "tags": [
         "residency",
         "rome",
         "italy",
         "villa medici"
       ],
-      "imageQuery": "villa medici rome exterior",
+      "imageQuery": "villa medici rome building",
       "sourceText": "2019 — Residency at Villa Medici, Rome",
       "inferredFields": [
         "country",
@@ -30,10 +30,10 @@
       "id": "2019-villa-medici",
       "images": [
         {
-          "url": "https://images.pexels.com/photos/14064480/pexels-photo-14064480.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Beautiful facade of Villa Doria Pamphili with lush greenery in Rome, Italy.",
-          "credit": "Alex Does Pictures",
-          "creditUrl": "https://www.pexels.com/@alex-does-pictures-33201512",
+          "url": "https://images.pexels.com/photos/36770792/pexels-photo-36770792.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Charming villa surrounded by pine trees in a Mediterranean environment, evoking classic Italian architecture.",
+          "credit": "Giorgi Gobadze",
+          "creditUrl": "https://www.pexels.com/@giorgi-gobadze-2160475859",
           "source": "pexels"
         },
         {
@@ -44,14 +44,14 @@
           "source": "pexels"
         },
         {
-          "url": "https://images.pexels.com/photos/36770792/pexels-photo-36770792.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Charming villa surrounded by pine trees in a Mediterranean environment, evoking classic Italian architecture.",
-          "credit": "Giorgi Gobadze",
-          "creditUrl": "https://www.pexels.com/@giorgi-gobadze-2160475859",
+          "url": "https://images.pexels.com/photos/14064480/pexels-photo-14064480.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Beautiful facade of Villa Doria Pamphili with lush greenery in Rome, Italy.",
+          "credit": "Alex Does Pictures",
+          "creditUrl": "https://www.pexels.com/@alex-does-pictures-33201512",
           "source": "pexels"
         }
       ],
-      "needsReview": true
+      "needsReview": false
     },
     {
       "year": 2020,
@@ -60,12 +60,13 @@
       "institution": "Palais de Tokyo",
       "city": "Paris",
       "country": "France",
-      "description": "The artist participated in a group exhibition at Palais de Tokyo in Paris in 2020. No further details were provided in the source text.",
+      "description": "The artist participated in a group exhibition at Palais de Tokyo in Paris in 2020. No further details were provided.",
       "tags": [
         "group_exhibition",
         "paris",
         "france",
-        "palais de tokyo"
+        "palais de tokyo",
+        "museum"
       ],
       "imageQuery": "palais de tokyo paris building",
       "sourceText": "2020 — Group exhibition at Palais de Tokyo, Paris",
@@ -98,7 +99,7 @@
           "source": "pexels"
         }
       ],
-      "needsReview": true
+      "needsReview": false
     },
     {
       "year": 2021,
@@ -107,14 +108,14 @@
       "institution": "XYZ Foundation",
       "city": "London",
       "country": "United Kingdom",
-      "description": "The artist engaged in a collaboration with XYZ Foundation in London in 2021. No further details were provided in the source text.",
+      "description": "The artist collaborated with XYZ Foundation in London in 2021. No further details were provided.",
       "tags": [
         "collaboration",
         "london",
         "united kingdom",
         "foundation"
       ],
-      "imageQuery": "london architecture building exterior",
+      "imageQuery": "london architecture exterior",
       "sourceText": "2021 — Collaboration with XYZ Foundation, London",
       "inferredFields": [
         "country",
@@ -138,14 +139,14 @@
           "source": "pexels"
         },
         {
-          "url": "https://images.pexels.com/photos/18654300/pexels-photo-18654300.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Close-up of a classic Victorian building facade in London, England.",
-          "credit": "Emílie Šmeráková",
-          "creditUrl": "https://www.pexels.com/@emilie-smerakova-750012491",
+          "url": "https://images.pexels.com/photos/2269594/pexels-photo-2269594.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Elegant red brick facade of Bridge House in London, showcasing classic architectural design.",
+          "credit": "Rodrigo Santos",
+          "creditUrl": "https://www.pexels.com/@rsantos1232",
           "source": "pexels"
         }
       ],
-      "needsReview": true
+      "needsReview": false
     },
     {
       "year": 2022,
@@ -154,14 +155,14 @@
       "institution": "Gallery ABC",
       "city": "Berlin",
       "country": "Germany",
-      "description": "The artist held a solo exhibition at Gallery ABC in Berlin in 2022. No further details were provided in the source text.",
+      "description": "The artist held a solo exhibition at Gallery ABC in Berlin in 2022. No further details were provided.",
       "tags": [
         "solo_exhibition",
         "berlin",
         "germany",
         "gallery"
       ],
-      "imageQuery": "berlin gallery building exterior",
+      "imageQuery": "berlin art gallery exterior",
       "sourceText": "2022 — Solo exhibition at Gallery ABC, Berlin",
       "inferredFields": [
         "country",
@@ -178,21 +179,21 @@
           "source": "pexels"
         },
         {
-          "url": "https://images.pexels.com/photos/35235410/pexels-photo-35235410.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Discover the neoclassical architecture of Altes Museum in Berlin, Germany, with its stunning columns and sculptures.",
-          "credit": "Travel with  Lenses",
-          "creditUrl": "https://www.pexels.com/@travel-with-lenses-734723610",
+          "url": "https://images.pexels.com/photos/28184682/pexels-photo-28184682.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Majestic view of Alte Nationalgalerie, showcasing neoclassical architecture under a vibrant sky.",
+          "credit": "You Know What Blog",
+          "creditUrl": "https://www.pexels.com/@you-know-what-blog-822152095",
           "source": "pexels"
         },
         {
-          "url": "https://images.pexels.com/photos/18910917/pexels-photo-18910917.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "A contemporary colonnade at James Simon Gallery, Berlin, with pedestrians walking by.",
-          "credit": "Zois Fotis",
-          "creditUrl": "https://www.pexels.com/@lichtberlin",
+          "url": "https://images.pexels.com/photos/37472324/pexels-photo-37472324.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Explore the grand neoclassical design of Alte Nationalgalerie on Museum Island, Berlin.",
+          "credit": "Arlind D",
+          "creditUrl": "https://www.pexels.com/@arlindphotography",
           "source": "pexels"
         }
       ],
-      "needsReview": true
+      "needsReview": false
     }
   ]
 }

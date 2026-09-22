@@ -43,9 +43,7 @@ export const ExtractedSchema = z.object({
   description: z.string().min(1),
   tags: z.array(z.string()),
   imageQuery: z.string().min(1),
-  /** The original CV line, copied verbatim, so every record can be traced back. */
   sourceText: z.string().min(1),
-  /** Fields the AI filled in without them being written in the CV. */
   inferredFields: z.array(z.string()),
   confidence: z.enum(["high", "medium", "low"]),
 });
@@ -67,6 +65,25 @@ export const DatasetSchema = z.object({
   experiences: z.array(ExperienceSchema),
 });
 
+/**
+ * A record needs a human only when the AI itself was not confident.
+ * A guessed-but-near-certain field (country from a well known city) is shown
+ * as informational ("AI inferred: ...") but does not, by itself, raise a flag.
+ * Otherwise nearly every record would be flagged and the signal would be useless.
+ */
+export function computeNeedsReview(e: Pick<Extracted, "confidence">): boolean {
+  return e.confidence !== "high";
+}
+
+export const ArtistSchema = z.object({
+  name: z.string().min(1),
+  bio: z.string().min(1),
+  location: z.string().nullable(),
+  profileInitials: z.string().min(1).max(3),
+  links: z.array(z.object({ label: z.string(), url: z.string().url() })),
+});
+
 export type Extracted = z.infer<typeof ExtractedSchema>;
 export type Experience = z.infer<typeof ExperienceSchema>;
 export type Dataset = z.infer<typeof DatasetSchema>;
+export type Artist = z.infer<typeof ArtistSchema>;

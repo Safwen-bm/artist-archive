@@ -17,7 +17,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             Artist archive
           </Link>
           <nav aria-label="Main">
-            <Link href="/">Catalogue</Link>
+            <Link href="/archive">Archive</Link>
+            <Link href="/playground">Playground</Link>
             <Link href="/method">How it was made</Link>
           </nav>
         </header>
