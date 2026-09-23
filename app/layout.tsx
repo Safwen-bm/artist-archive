@@ -16,11 +16,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Link href="/" className="brand">
             Artist archive
           </Link>
-          <nav aria-label="Main">
-            <Link href="/archive">Archive</Link>
-            <Link href="/playground">Playground</Link>
-            <Link href="/method">How it was made</Link>
-          </nav>
+          <div className="site-header-right">
+            <nav aria-label="Main">
+              <Link href="/archive">Archive</Link>
+              <Link href="/playground">Playground</Link>
+              <Link href="/method">How it was made</Link>
+            </nav>
+            <Link href="/admin" className="nav-admin">
+              Dashboard
+            </Link>
+          </div>
         </header>
         <main className="wrap">{children}</main>
         <footer className="site-footer wrap">

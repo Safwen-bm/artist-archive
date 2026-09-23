@@ -2,12 +2,14 @@ import { NextResponse } from "next/server";
 import { extractFromLines } from "@/lib/extract-ai";
 import { computeNeedsReview } from "@/lib/schema";
 
-const MAX_LINES = 6;
-const MAX_LINE_LENGTH = 200;
+// A full career CV should fit. The real defense against abuse is the
+// per-IP rate limit below, not this number, so there's no reason to make
+// this artificially small.
+const MAX_LINES = 40;
+const MAX_LINE_LENGTH = 400;
+const BATCH_SIZE = 20;
 const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-3.6-flash";
 
-// Best-effort in-memory throttle. Resets whenever the serverless instance
-// recycles, so this is a courtesy limit, not real rate limiting.
 const hits = new Map<string, number[]>();
 const WINDOW_MS = 60_000;
 const MAX_PER_WINDOW = 5;
@@ -24,25 +26,41 @@ export async function POST(req: Request) {
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
     return NextResponse.json(
-      { error: "Playground is not configured. Set GEMINI_API_KEY in the deployment's environment variables." },
+      {
+        error:
+          "Playground is not configured. Set GEMINI_API_KEY in the deployment's environment variables.",
+      },
       { status: 500 },
     );
   }
 
   const id = req.headers.get("x-forwarded-for") ?? "anonymous";
   if (isRateLimited(id)) {
-    return NextResponse.json({ error: "Too many requests. Wait a minute and try again." }, { status: 429 });
+    return NextResponse.json(
+      { error: "Too many requests. Wait a minute and try again." },
+      { status: 429 },
+    );
   }
 
   let lines: unknown;
   try {
     ({ lines } = await req.json());
   } catch {
-    return NextResponse.json({ error: "Invalid request body." }, { status: 400 });
+    return NextResponse.json(
+      { error: "Invalid request body." },
+      { status: 400 },
+    );
   }
 
-  if (!Array.isArray(lines) || lines.length === 0 || !lines.every((l) => typeof l === "string")) {
-    return NextResponse.json({ error: "Send { lines: string[] }." }, { status: 400 });
+  if (
+    !Array.isArray(lines) ||
+    lines.length === 0 ||
+    !lines.every((l) => typeof l === "string")
+  ) {
+    return NextResponse.json(
+      { error: "Send { lines: string[] }." },
+      { status: 400 },
+    );
   }
 
   const cleaned = lines
@@ -52,15 +70,41 @@ export async function POST(req: Request) {
     .map((l) => l.slice(0, MAX_LINE_LENGTH));
 
   if (cleaned.length === 0) {
-    return NextResponse.json({ error: "No usable lines in the request." }, { status: 400 });
+    return NextResponse.json(
+      { error: "No usable lines in the request." },
+      { status: 400 },
+    );
   }
 
+  const truncated = lines.length > MAX_LINES;
+
   try {
-    const extracted = await extractFromLines(cleaned, apiKey, GEMINI_MODEL);
-    const records = extracted.map((e) => ({ ...e, needsReview: computeNeedsReview(e) }));
-    return NextResponse.json({ records, truncated: lines.length > MAX_LINES });
+    const extracted = [];
+    for (let i = 0; i < cleaned.length; i += BATCH_SIZE) {
+      extracted.push(
+        ...(await extractFromLines(
+          cleaned.slice(i, i + BATCH_SIZE),
+          apiKey,
+          GEMINI_MODEL,
+        )),
+      );
+    }
+    const records = extracted.map((e) => ({
+      ...e,
+      needsReview: computeNeedsReview(e),
+    }));
+    return NextResponse.json({
+      records,
+      truncated,
+      truncatedMessage: truncated
+        ? `Only the first ${MAX_LINES} entries were sent, ${lines.length - MAX_LINES} were left out.`
+        : null,
+    });
   } catch (err) {
     console.error(err);
-    return NextResponse.json({ error: "The AI call failed. Try again in a moment." }, { status: 502 });
+    return NextResponse.json(
+      { error: "The AI call failed. Try again in a moment." },
+      { status: 502 },
+    );
   }
 }

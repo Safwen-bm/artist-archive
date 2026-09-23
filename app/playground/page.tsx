@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { TYPE_LABELS, type Extracted } from "@/lib/schema";
+import { segmentIntoEntries } from "@/lib/segment";
 
 const EXAMPLE = `2018 — Residency at Villa Medici, Rome
 2020 — Exhibition at Palais de Tokyo, Paris
@@ -12,16 +13,18 @@ type Record = Extracted & { needsReview: boolean };
 export default function PlaygroundPage() {
   const [text, setText] = useState(EXAMPLE);
   const [records, setRecords] = useState<Record[] | null>(null);
+  const [notice, setNotice] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
   async function generate() {
-    const lines = text.split("\n").map((l) => l.trim()).filter(Boolean);
+    const lines = segmentIntoEntries(text.split("\n"));
     if (lines.length === 0) return;
 
     setLoading(true);
     setError(null);
     setRecords(null);
+    setNotice(null);
     try {
       const res = await fetch("/api/extract", {
         method: "POST",
@@ -31,6 +34,7 @@ export default function PlaygroundPage() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Something went wrong.");
       setRecords(data.records);
+      if (data.truncated) setNotice(data.truncatedMessage);
     } catch (err) {
       setError((err as Error).message);
     } finally {
@@ -43,31 +47,44 @@ export default function PlaygroundPage() {
       <div className="page-head">
         <h1>AI archive builder</h1>
         <p>
-          Paste a few CV lines below and Gemini turns them into structured records live, the same call the real
-          archive was built from. Results here are a preview only, nothing is saved: this site has no database,
-          so there is nowhere to persist them. See <a href="/method">how it was made</a> for the full pipeline.
+          Paste CV lines below and Gemini turns them into structured records
+          live, the same call the real archive was built from. Works whether
+          each experience is one line, or spread across a year, a title and a
+          venue line, they get grouped automatically. Results here are a preview
+          only, nothing is saved: this site has no database, so there is nowhere
+          to persist them. See <a href="/method">how it was made</a> for the
+          full pipeline.
         </p>
       </div>
 
-      <label htmlFor="cv-input" className="sr-only">CV lines</label>
+      <label htmlFor="cv-input" className="sr-only">
+        CV lines
+      </label>
       <textarea
         id="cv-input"
         className="playground-input"
         value={text}
         onChange={(e) => setText(e.target.value)}
-        rows={6}
-        maxLength={1200}
+        rows={8}
+        maxLength={4000}
         placeholder="2019 — Residency at Villa Medici, Rome"
       />
 
       <div className="playground-actions">
-        <button className="btn btn-primary" onClick={generate} disabled={loading}>
+        <button
+          className="btn btn-primary"
+          onClick={generate}
+          disabled={loading}
+        >
           {loading ? "Generating…" : "Generate archive"}
         </button>
-        <span className="playground-hint">Up to 6 lines per request, so the demo stays free for everyone.</span>
+        <span className="playground-hint">
+          Up to 40 entries per request, so the demo stays free for everyone.
+        </span>
       </div>
 
       {error ? <p className="playground-error">{error}</p> : null}
+      {notice ? <p className="playground-error">{notice}</p> : null}
 
       {records ? (
         <div className="playground-results">
@@ -77,7 +94,9 @@ export default function PlaygroundPage() {
               <article key={i} className="playground-card">
                 <div className="playground-card-head">
                   <span className="tile-year">{r.year}</span>
-                  {r.needsReview ? <span className="review-flag">Needs review</span> : null}
+                  {r.needsReview ? (
+                    <span className="review-flag">Needs review</span>
+                  ) : null}
                 </div>
                 <h3>{r.title}</h3>
                 <p className="tile-meta">
